@@ -1,24 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
+import '../node_modules/aos/dist/aos.css';
+import AOS from 'aos';
+
+import {MainNav} from './components/Home/MainNav'
+import {Title} from './components/Home/Title'
+import {CurrentScenario} from "./components/Home/CurrentScenario";
+
 import './App.css';
+import { Symptoms } from './components/Home/Symptoms';
+import { Prevention } from './components/Home/Prevention';
+import { Features } from './components/Home/Features';
+
+
+/*
+import { TweetsByGOI } from "./components/TweetsByGOI";
+import { TweetsByMOHFW } from "./components/TweetsByMOHFW";
+import { Analysis } from "./components/Analysis/Analysis"; */
 
 function App() {
+  AOS.init({
+    offset: 200,
+    duration: 600,
+    easing: 'ease-in-sine',
+    delay: 100,
+  });
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <MainNav/>
       </header>
+      
+      <div className="bg-1">
+        <Title/>
+      </div>
+
+      <div className="bg-2">
+        <Features/>
+      </div>
+
+      <div className="bg-2">
+        <Symptoms/>
+      </div>
+
+      <div className="bg-1">
+        <Prevention/>
+      </div>
     </div>
   );
 }
